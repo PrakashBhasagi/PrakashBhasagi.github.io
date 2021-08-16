@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>1&period; Python Data Types</title>
+        <style>
+/* From extension vscode.markdown-math */
+@font-face{font-family:KaTeX_AMS;src:url(fonts/KaTeX_AMS-Regular.woff2) format("woff2"),url(fonts/KaTeX_AMS-Regular.woff) format("woff"),url(fonts/KaTeX_AMS-Regular.ttf) format("truetype");font-weight:400;font-style:normal}@font-face{font-family:KaTeX_Caligraphic;src:url(fonts/KaTeX_Caligraphic-Bold.woff2) format("woff2"),url(fonts/KaTeX_Caligraphic-Bold.woff) format("woff"),url(fonts/KaTeX_Caligraphic-Bold.ttf) format("truetype");font-weight:700;font-style:normal}@font-face{font-family:KaTeX_Caligraphic;src:url(fonts/KaTeX_Caligraphic-Regular.woff2) format("woff2"),url(fonts/KaTeX_Caligraphic-Regular.woff) format("woff"),url(fonts/KaTeX_Caligraphic-Regular.ttf) format("truetype");font-weight:400;font-style:normal}@font-face{font-family:KaTeX_Fraktur;src:url(fonts/KaTeX_Fraktur-Bold.woff2) format("woff2"),url(fonts/KaTeX_Fraktur-Bold.woff) format("woff"),url(fonts/KaTeX_Fraktur-Bold.ttf) format("truetype");font-weight:700;font-style:normal}@font-face{font-family:KaTeX_Fraktur;src:url(fonts/KaTeX_Fraktur-Regular.woff2) format("woff2"),url(fonts/KaTeX_Fraktur-Regular.woff) format("woff"),url(fonts/KaTeX_Fraktur-Regular.ttf) format("truetype");font-weight:400;font-style:normal}@font-face{font-family:KaTeX_Main;src:url(fonts/KaTeX_Main-Bold.woff2) format("woff2"),url(fonts/KaTeX_Main-Bold.woff) format("woff"),url(fonts/KaTeX_Main-Bold.ttf) format("truetype");font-weight:700;font-style:normal}@font-face{font-family:KaTeX_Main;src:url(fonts/KaTeX_Main-BoldItalic.woff2) format("woff2"),url(fonts/KaTeX_Main-BoldItalic.woff) format("woff"),url(fonts/KaTeX_Main-BoldItalic.ttf) format("truetype");font-weight:700;font-style:italic}@font-face{font-family:KaTeX_Main;src:url(fonts/KaTeX_Main-Italic.woff2) format("woff2"),url(fonts/KaTeX_Main-Italic.woff) format("woff"),url(fonts/KaTeX_Main-Italic.ttf) format("truetype");font-weight:400;font-style:italic}@font-face{font-family:KaTeX_Main;src:url(fonts/KaTeX_Main-Regular.woff2) format("woff2"),url(fonts/KaTeX_Main-Regular.woff) format("woff"),url(fonts/KaTeX_Main-Regular.ttf) format("truetype");font-weight:400;font-style:normal}@font-face{font-family:KaTeX_Math;src:url(fonts/KaTeX_Math-BoldItalic.woff2) format("woff2"),url(fonts/KaTeX_Math-BoldItalic.woff) format("woff"),url(fonts/KaTeX_Math-BoldItalic.ttf) format("truetype");font-weight:700;font-style:italic}@font-face{font-family:KaTeX_Math;src:url(fonts/KaTeX_Math-Italic.woff2) format("woff2"),url(fonts/KaTeX_Math-Italic.woff) format("woff"),url(fonts/KaTeX_Math-Italic.ttf) format("truetype");font-weight:400;font-style:italic}@font-face{font-family:"KaTeX_SansSerif";src:url(fonts/KaTeX_SansSerif-Bold.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Bold.woff) format("woff"),url(fonts/KaTeX_SansSerif-Bold.ttf) format("truetype");font-weight:700;font-style:normal}@font-face{font-family:"KaTeX_SansSerif";src:url(fonts/KaTeX_SansSerif-Italic.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Italic.woff) format("woff"),url(fonts/KaTeX_SansSerif-Italic.ttf) format("truetype");font-weight:400;font-style:italic}@font-face{font-family:"KaTeX_SansSerif";src:url(fonts/KaTeX_SansSerif-Regular.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Regular.woff) format("woff"),url(fonts/KaTeX_SansSerif-Regular.ttf) format("truetype");font-weight:400;font-style:normal}@font-face{font-family:KaTeX_Script;src:url(fonts/KaTeX_Script-Regular.woff2) format("woff2"),url(fonts/KaTeX_Script-Regular.woff) format("woff"),url(fonts/KaTeX_Script-Regular.ttf) format("truetype");font-weight:400;font-style:normal}@font-face{font-family:KaTeX_Size1;src:url(fonts/KaTeX_Size1-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size1-Regular.woff) format("woff"),url(fonts/KaTeX_Size1-Regular.ttf) format("truetype");font-weight:400;font-style:normal}@font-face{font-family:KaTeX_Size2;src:url(fonts/KaTeX_Size2-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size2-Regular.woff) format("woff"),url(fonts/KaTeX_Size2-Regular.ttf) format("truetype");font-weight:400;font-style:normal}@font-face{font-family:KaTeX_Size3;src:url(fonts/KaTeX_Size3-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size3-Regular.woff) format("woff"),url(fonts/KaTeX_Size3-Regular.ttf) format("truetype");font-weight:400;font-style:normal}@font-face{font-family:KaTeX_Size4;src:url(fonts/KaTeX_Size4-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size4-Regular.woff) format("woff"),url(fonts/KaTeX_Size4-Regular.ttf) format("truetype");font-weight:400;font-style:normal}@font-face{font-family:KaTeX_Typewriter;src:url(fonts/KaTeX_Typewriter-Regular.woff2) format("woff2"),url(fonts/KaTeX_Typewriter-Regular.woff) format("woff"),url(fonts/KaTeX_Typewriter-Regular.ttf) format("truetype");font-weight:400;font-style:normal}.katex{font:normal 1.21em KaTeX_Main,Times New Roman,serif;line-height:1.2;text-indent:0;text-rendering:auto;border-color:currentColor}.katex *{-ms-high-contrast-adjust:none!important}.katex .katex-version:after{content:"0.13.0"}.katex .katex-mathml{position:absolute;clip:rect(1px,1px,1px,1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}.katex .katex-html>.newline{display:block}.katex .base{position:relative;white-space:nowrap;width:-webkit-min-content;width:-moz-min-content;width:min-content}.katex .base,.katex .strut{display:inline-block}.katex .textbf{font-weight:700}.katex .textit{font-style:italic}.katex .textrm{font-family:KaTeX_Main}.katex .textsf{font-family:KaTeX_SansSerif}.katex .texttt{font-family:KaTeX_Typewriter}.katex .mathnormal{font-family:KaTeX_Math;font-style:italic}.katex .mathit{font-family:KaTeX_Main;font-style:italic}.katex .mathrm{font-style:normal}.katex .mathbf{font-family:KaTeX_Main;font-weight:700}.katex .boldsymbol{font-family:KaTeX_Math;font-weight:700;font-style:italic}.katex .amsrm,.katex .mathbb,.katex .textbb{font-family:KaTeX_AMS}.katex .mathcal{font-family:KaTeX_Caligraphic}.katex .mathfrak,.katex .textfrak{font-family:KaTeX_Fraktur}.katex .mathtt{font-family:KaTeX_Typewriter}.katex .mathscr,.katex .textscr{font-family:KaTeX_Script}.katex .mathsf,.katex .textsf{font-family:KaTeX_SansSerif}.katex .mathboldsf,.katex .textboldsf{font-family:KaTeX_SansSerif;font-weight:700}.katex .mathitsf,.katex .textitsf{font-family:KaTeX_SansSerif;font-style:italic}.katex .mainrm{font-family:KaTeX_Main;font-style:normal}.katex .vlist-t{display:inline-table;table-layout:fixed;border-collapse:collapse}.katex .vlist-r{display:table-row}.katex .vlist{display:table-cell;vertical-align:bottom;position:relative}.katex .vlist>span{display:block;height:0;position:relative}.katex .vlist>span>span{display:inline-block}.katex .vlist>span>.pstrut{overflow:hidden;width:0}.katex .vlist-t2{margin-right:-2px}.katex .vlist-s{display:table-cell;vertical-align:bottom;font-size:1px;width:2px;min-width:2px}.katex .vbox{display:inline-flex;flex-direction:column;align-items:baseline}.katex .hbox{width:100%}.katex .hbox,.katex .thinbox{display:inline-flex;flex-direction:row}.katex .thinbox{width:0;max-width:0}.katex .msupsub{text-align:left}.katex .mfrac>span>span{text-align:center}.katex .mfrac .frac-line{display:inline-block;width:100%;border-bottom-style:solid}.katex .hdashline,.katex .hline,.katex .mfrac .frac-line,.katex .overline .overline-line,.katex .rule,.katex .underline .underline-line{min-height:1px}.katex .mspace{display:inline-block}.katex .clap,.katex .llap,.katex .rlap{width:0;position:relative}.katex .clap>.inner,.katex .llap>.inner,.katex .rlap>.inner{position:absolute}.katex .clap>.fix,.katex .llap>.fix,.katex .rlap>.fix{display:inline-block}.katex .llap>.inner{right:0}.katex .clap>.inner,.katex .rlap>.inner{left:0}.katex .clap>.inner>span{margin-left:-50%;margin-right:50%}.katex .rule{display:inline-block;border:0 solid;position:relative}.katex .hline,.katex .overline .overline-line,.katex .underline .underline-line{display:inline-block;width:100%;border-bottom-style:solid}.katex .hdashline{display:inline-block;width:100%;border-bottom-style:dashed}.katex .sqrt>.root{margin-left:.27777778em;margin-right:-.55555556em}.katex .fontsize-ensurer.reset-size1.size1,.katex .sizing.reset-size1.size1{font-size:1em}.katex .fontsize-ensurer.reset-size1.size2,.katex .sizing.reset-size1.size2{font-size:1.2em}.katex .fontsize-ensurer.reset-size1.size3,.katex .sizing.reset-size1.size3{font-size:1.4em}.katex .fontsize-ensurer.reset-size1.size4,.katex .sizing.reset-size1.size4{font-size:1.6em}.katex .fontsize-ensurer.reset-size1.size5,.katex .sizing.reset-size1.size5{font-size:1.8em}.katex .fontsize-ensurer.reset-size1.size6,.katex .sizing.reset-size1.size6{font-size:2em}.katex .fontsize-ensurer.reset-size1.size7,.katex .sizing.reset-size1.size7{font-size:2.4em}.katex .fontsize-ensurer.reset-size1.size8,.katex .sizing.reset-size1.size8{font-size:2.88em}.katex .fontsize-ensurer.reset-size1.size9,.katex .sizing.reset-size1.size9{font-size:3.456em}.katex .fontsize-ensurer.reset-size1.size10,.katex .sizing.reset-size1.size10{font-size:4.148em}.katex .fontsize-ensurer.reset-size1.size11,.katex .sizing.reset-size1.size11{font-size:4.976em}.katex .fontsize-ensurer.reset-size2.size1,.katex .sizing.reset-size2.size1{font-size:.83333333em}.katex .fontsize-ensurer.reset-size2.size2,.katex .sizing.reset-size2.size2{font-size:1em}.katex .fontsize-ensurer.reset-size2.size3,.katex .sizing.reset-size2.size3{font-size:1.16666667em}.katex .fontsize-ensurer.reset-size2.size4,.katex .sizing.reset-size2.size4{font-size:1.33333333em}.katex .fontsize-ensurer.reset-size2.size5,.katex .sizing.reset-size2.size5{font-size:1.5em}.katex .fontsize-ensurer.reset-size2.size6,.katex .sizing.reset-size2.size6{font-size:1.66666667em}.katex .fontsize-ensurer.reset-size2.size7,.katex .sizing.reset-size2.size7{font-size:2em}.katex .fontsize-ensurer.reset-size2.size8,.katex .sizing.reset-size2.size8{font-size:2.4em}.katex .fontsize-ensurer.reset-size2.size9,.katex .sizing.reset-size2.size9{font-size:2.88em}.katex .fontsize-ensurer.reset-size2.size10,.katex .sizing.reset-size2.size10{font-size:3.45666667em}.katex .fontsize-ensurer.reset-size2.size11,.katex .sizing.reset-size2.size11{font-size:4.14666667em}.katex .fontsize-ensurer.reset-size3.size1,.katex .sizing.reset-size3.size1{font-size:.71428571em}.katex .fontsize-ensurer.reset-size3.size2,.katex .sizing.reset-size3.size2{font-size:.85714286em}.katex .fontsize-ensurer.reset-size3.size3,.katex .sizing.reset-size3.size3{font-size:1em}.katex .fontsize-ensurer.reset-size3.size4,.katex .sizing.reset-size3.size4{font-size:1.14285714em}.katex .fontsize-ensurer.reset-size3.size5,.katex .sizing.reset-size3.size5{font-size:1.28571429em}.katex .fontsize-ensurer.reset-size3.size6,.katex .sizing.reset-size3.size6{font-size:1.42857143em}.katex .fontsize-ensurer.reset-size3.size7,.katex .sizing.reset-size3.size7{font-size:1.71428571em}.katex .fontsize-ensurer.reset-size3.size8,.katex .sizing.reset-size3.size8{font-size:2.05714286em}.katex .fontsize-ensurer.reset-size3.size9,.katex .sizing.reset-size3.size9{font-size:2.46857143em}.katex .fontsize-ensurer.reset-size3.size10,.katex .sizing.reset-size3.size10{font-size:2.96285714em}.katex .fontsize-ensurer.reset-size3.size11,.katex .sizing.reset-size3.size11{font-size:3.55428571em}.katex .fontsize-ensurer.reset-size4.size1,.katex .sizing.reset-size4.size1{font-size:.625em}.katex .fontsize-ensurer.reset-size4.size2,.katex .sizing.reset-size4.size2{font-size:.75em}.katex .fontsize-ensurer.reset-size4.size3,.katex .sizing.reset-size4.size3{font-size:.875em}.katex .fontsize-ensurer.reset-size4.size4,.katex .sizing.reset-size4.size4{font-size:1em}.katex .fontsize-ensurer.reset-size4.size5,.katex .sizing.reset-size4.size5{font-size:1.125em}.katex .fontsize-ensurer.reset-size4.size6,.katex .sizing.reset-size4.size6{font-size:1.25em}.katex .fontsize-ensurer.reset-size4.size7,.katex .sizing.reset-size4.size7{font-size:1.5em}.katex .fontsize-ensurer.reset-size4.size8,.katex .sizing.reset-size4.size8{font-size:1.8em}.katex .fontsize-ensurer.reset-size4.size9,.katex .sizing.reset-size4.size9{font-size:2.16em}.katex .fontsize-ensurer.reset-size4.size10,.katex .sizing.reset-size4.size10{font-size:2.5925em}.katex .fontsize-ensurer.reset-size4.size11,.katex .sizing.reset-size4.size11{font-size:3.11em}.katex .fontsize-ensurer.reset-size5.size1,.katex .sizing.reset-size5.size1{font-size:.55555556em}.katex .fontsize-ensurer.reset-size5.size2,.katex .sizing.reset-size5.size2{font-size:.66666667em}.katex .fontsize-ensurer.reset-size5.size3,.katex .sizing.reset-size5.size3{font-size:.77777778em}.katex .fontsize-ensurer.reset-size5.size4,.katex .sizing.reset-size5.size4{font-size:.88888889em}.katex .fontsize-ensurer.reset-size5.size5,.katex .sizing.reset-size5.size5{font-size:1em}.katex .fontsize-ensurer.reset-size5.size6,.katex .sizing.reset-size5.size6{font-size:1.11111111em}.katex .fontsize-ensurer.reset-size5.size7,.katex .sizing.reset-size5.size7{font-size:1.33333333em}.katex .fontsize-ensurer.reset-size5.size8,.katex .sizing.reset-size5.size8{font-size:1.6em}.katex .fontsize-ensurer.reset-size5.size9,.katex .sizing.reset-size5.size9{font-size:1.92em}.katex .fontsize-ensurer.reset-size5.size10,.katex .sizing.reset-size5.size10{font-size:2.30444444em}.katex .fontsize-ensurer.reset-size5.size11,.katex .sizing.reset-size5.size11{font-size:2.76444444em}.katex .fontsize-ensurer.reset-size6.size1,.katex .sizing.reset-size6.size1{font-size:.5em}.katex .fontsize-ensurer.reset-size6.size2,.katex .sizing.reset-size6.size2{font-size:.6em}.katex .fontsize-ensurer.reset-size6.size3,.katex .sizing.reset-size6.size3{font-size:.7em}.katex .fontsize-ensurer.reset-size6.size4,.katex .sizing.reset-size6.size4{font-size:.8em}.katex .fontsize-ensurer.reset-size6.size5,.katex .sizing.reset-size6.size5{font-size:.9em}.katex .fontsize-ensurer.reset-size6.size6,.katex .sizing.reset-size6.size6{font-size:1em}.katex .fontsize-ensurer.reset-size6.size7,.katex .sizing.reset-size6.size7{font-size:1.2em}.katex .fontsize-ensurer.reset-size6.size8,.katex .sizing.reset-size6.size8{font-size:1.44em}.katex .fontsize-ensurer.reset-size6.size9,.katex .sizing.reset-size6.size9{font-size:1.728em}.katex .fontsize-ensurer.reset-size6.size10,.katex .sizing.reset-size6.size10{font-size:2.074em}.katex .fontsize-ensurer.reset-size6.size11,.katex .sizing.reset-size6.size11{font-size:2.488em}.katex .fontsize-ensurer.reset-size7.size1,.katex .sizing.reset-size7.size1{font-size:.41666667em}.katex .fontsize-ensurer.reset-size7.size2,.katex .sizing.reset-size7.size2{font-size:.5em}.katex .fontsize-ensurer.reset-size7.size3,.katex .sizing.reset-size7.size3{font-size:.58333333em}.katex .fontsize-ensurer.reset-size7.size4,.katex .sizing.reset-size7.size4{font-size:.66666667em}.katex .fontsize-ensurer.reset-size7.size5,.katex .sizing.reset-size7.size5{font-size:.75em}.katex .fontsize-ensurer.reset-size7.size6,.katex .sizing.reset-size7.size6{font-size:.83333333em}.katex .fontsize-ensurer.reset-size7.size7,.katex .sizing.reset-size7.size7{font-size:1em}.katex .fontsize-ensurer.reset-size7.size8,.katex .sizing.reset-size7.size8{font-size:1.2em}.katex .fontsize-ensurer.reset-size7.size9,.katex .sizing.reset-size7.size9{font-size:1.44em}.katex .fontsize-ensurer.reset-size7.size10,.katex .sizing.reset-size7.size10{font-size:1.72833333em}.katex .fontsize-ensurer.reset-size7.size11,.katex .sizing.reset-size7.size11{font-size:2.07333333em}.katex .fontsize-ensurer.reset-size8.size1,.katex .sizing.reset-size8.size1{font-size:.34722222em}.katex .fontsize-ensurer.reset-size8.size2,.katex .sizing.reset-size8.size2{font-size:.41666667em}.katex .fontsize-ensurer.reset-size8.size3,.katex .sizing.reset-size8.size3{font-size:.48611111em}.katex .fontsize-ensurer.reset-size8.size4,.katex .sizing.reset-size8.size4{font-size:.55555556em}.katex .fontsize-ensurer.reset-size8.size5,.katex .sizing.reset-size8.size5{font-size:.625em}.katex .fontsize-ensurer.reset-size8.size6,.katex .sizing.reset-size8.size6{font-size:.69444444em}.katex .fontsize-ensurer.reset-size8.size7,.katex .sizing.reset-size8.size7{font-size:.83333333em}.katex .fontsize-ensurer.reset-size8.size8,.katex .sizing.reset-size8.size8{font-size:1em}.katex .fontsize-ensurer.reset-size8.size9,.katex .sizing.reset-size8.size9{font-size:1.2em}.katex .fontsize-ensurer.reset-size8.size10,.katex .sizing.reset-size8.size10{font-size:1.44027778em}.katex .fontsize-ensurer.reset-size8.size11,.katex .sizing.reset-size8.size11{font-size:1.72777778em}.katex .fontsize-ensurer.reset-size9.size1,.katex .sizing.reset-size9.size1{font-size:.28935185em}.katex .fontsize-ensurer.reset-size9.size2,.katex .sizing.reset-size9.size2{font-size:.34722222em}.katex .fontsize-ensurer.reset-size9.size3,.katex .sizing.reset-size9.size3{font-size:.40509259em}.katex .fontsize-ensurer.reset-size9.size4,.katex .sizing.reset-size9.size4{font-size:.46296296em}.katex .fontsize-ensurer.reset-size9.size5,.katex .sizing.reset-size9.size5{font-size:.52083333em}.katex .fontsize-ensurer.reset-size9.size6,.katex .sizing.reset-size9.size6{font-size:.5787037em}.katex .fontsize-ensurer.reset-size9.size7,.katex .sizing.reset-size9.size7{font-size:.69444444em}.katex .fontsize-ensurer.reset-size9.size8,.katex .sizing.reset-size9.size8{font-size:.83333333em}.katex .fontsize-ensurer.reset-size9.size9,.katex .sizing.reset-size9.size9{font-size:1em}.katex .fontsize-ensurer.reset-size9.size10,.katex .sizing.reset-size9.size10{font-size:1.20023148em}.katex .fontsize-ensurer.reset-size9.size11,.katex .sizing.reset-size9.size11{font-size:1.43981481em}.katex .fontsize-ensurer.reset-size10.size1,.katex .sizing.reset-size10.size1{font-size:.24108004em}.katex .fontsize-ensurer.reset-size10.size2,.katex .sizing.reset-size10.size2{font-size:.28929605em}.katex .fontsize-ensurer.reset-size10.size3,.katex .sizing.reset-size10.size3{font-size:.33751205em}.katex .fontsize-ensurer.reset-size10.size4,.katex .sizing.reset-size10.size4{font-size:.38572806em}.katex .fontsize-ensurer.reset-size10.size5,.katex .sizing.reset-size10.size5{font-size:.43394407em}.katex .fontsize-ensurer.reset-size10.size6,.katex .sizing.reset-size10.size6{font-size:.48216008em}.katex .fontsize-ensurer.reset-size10.size7,.katex .sizing.reset-size10.size7{font-size:.57859209em}.katex .fontsize-ensurer.reset-size10.size8,.katex .sizing.reset-size10.size8{font-size:.69431051em}.katex .fontsize-ensurer.reset-size10.size9,.katex .sizing.reset-size10.size9{font-size:.83317261em}.katex .fontsize-ensurer.reset-size10.size10,.katex .sizing.reset-size10.size10{font-size:1em}.katex .fontsize-ensurer.reset-size10.size11,.katex .sizing.reset-size10.size11{font-size:1.19961427em}.katex .fontsize-ensurer.reset-size11.size1,.katex .sizing.reset-size11.size1{font-size:.20096463em}.katex .fontsize-ensurer.reset-size11.size2,.katex .sizing.reset-size11.size2{font-size:.24115756em}.katex .fontsize-ensurer.reset-size11.size3,.katex .sizing.reset-size11.size3{font-size:.28135048em}.katex .fontsize-ensurer.reset-size11.size4,.katex .sizing.reset-size11.size4{font-size:.32154341em}.katex .fontsize-ensurer.reset-size11.size5,.katex .sizing.reset-size11.size5{font-size:.36173633em}.katex .fontsize-ensurer.reset-size11.size6,.katex .sizing.reset-size11.size6{font-size:.40192926em}.katex .fontsize-ensurer.reset-size11.size7,.katex .sizing.reset-size11.size7{font-size:.48231511em}.katex .fontsize-ensurer.reset-size11.size8,.katex .sizing.reset-size11.size8{font-size:.57877814em}.katex .fontsize-ensurer.reset-size11.size9,.katex .sizing.reset-size11.size9{font-size:.69453376em}.katex .fontsize-ensurer.reset-size11.size10,.katex .sizing.reset-size11.size10{font-size:.83360129em}.katex .fontsize-ensurer.reset-size11.size11,.katex .sizing.reset-size11.size11{font-size:1em}.katex .delimsizing.size1{font-family:KaTeX_Size1}.katex .delimsizing.size2{font-family:KaTeX_Size2}.katex .delimsizing.size3{font-family:KaTeX_Size3}.katex .delimsizing.size4{font-family:KaTeX_Size4}.katex .delimsizing.mult .delim-size1>span{font-family:KaTeX_Size1}.katex .delimsizing.mult .delim-size4>span{font-family:KaTeX_Size4}.katex .nulldelimiter{display:inline-block;width:.12em}.katex .delimcenter,.katex .op-symbol{position:relative}.katex .op-symbol.small-op{font-family:KaTeX_Size1}.katex .op-symbol.large-op{font-family:KaTeX_Size2}.katex .accent>.vlist-t,.katex .op-limits>.vlist-t{text-align:center}.katex .accent .accent-body{position:relative}.katex .accent .accent-body:not(.accent-full){width:0}.katex .overlay{display:block}.katex .mtable .vertical-separator{display:inline-block;min-width:1px}.katex .mtable .arraycolsep{display:inline-block}.katex .mtable .col-align-c>.vlist-t{text-align:center}.katex .mtable .col-align-l>.vlist-t{text-align:left}.katex .mtable .col-align-r>.vlist-t{text-align:right}.katex .svg-align{text-align:left}.katex svg{display:block;position:absolute;width:100%;height:inherit;fill:currentColor;stroke:currentColor;fill-rule:nonzero;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1}.katex svg path{stroke:none}.katex img{border-style:none;min-width:0;min-height:0;max-width:none;max-height:none}.katex .stretchy{width:100%;display:block;position:relative;overflow:hidden}.katex .stretchy:after,.katex .stretchy:before{content:""}.katex .hide-tail{width:100%;position:relative;overflow:hidden}.katex .halfarrow-left{position:absolute;left:0;width:50.2%;overflow:hidden}.katex .halfarrow-right{position:absolute;right:0;width:50.2%;overflow:hidden}.katex .brace-left{position:absolute;left:0;width:25.1%;overflow:hidden}.katex .brace-center{position:absolute;left:25%;width:50%;overflow:hidden}.katex .brace-right{position:absolute;right:0;width:25.1%;overflow:hidden}.katex .x-arrow-pad{padding:0 .5em}.katex .cd-arrow-pad{padding:0 .55556em 0 .27778em}.katex .mover,.katex .munder,.katex .x-arrow{text-align:center}.katex .boxpad{padding:0 .3em}.katex .fbox,.katex .fcolorbox{box-sizing:border-box;border:.04em solid}.katex .cancel-pad{padding:0 .2em}.katex .cancel-lap{margin-left:-.2em;margin-right:-.2em}.katex .sout{border-bottom-style:solid;border-bottom-width:.08em}.katex .angl{box-sizing:border-content;border-top:.049em solid;border-right:.049em solid;margin-right:.03889em}.katex .anglpad{padding:0 .03889em}.katex .eqn-num:before{counter-increment:katexEqnNo;content:"(" counter(katexEqnNo) ")"}.katex .mml-eqn-num:before{counter-increment:mmlEqnNo;content:"(" counter(mmlEqnNo) ")"}.katex .mtr-glue{width:50%}.katex .cd-vert-arrow{display:inline-block;position:relative}.katex .cd-label-left{display:inline-block;position:absolute;right:calc(50% + .3em);text-align:left}.katex .cd-label-right{display:inline-block;position:absolute;left:calc(50% + .3em);text-align:right}.katex-display{display:block;margin:1em 0;text-align:center}.katex-display>.katex{display:block;text-align:center;white-space:nowrap}.katex-display>.katex>.katex-html{display:block;position:relative}.katex-display>.katex>.katex-html>.tag{position:absolute;right:0}.katex-display.leqno>.katex>.katex-html>.tag{left:0;right:auto}.katex-display.fleqn>.katex{text-align:left;padding-left:2em}body{counter-reset:katexEqnNo mmlEqnNo}
+
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.katex-error {
+	color: var(--vscode-editorError-foreground);
+}
+
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="1-python-data-types">1. Python Data Types</h1>
+<ul>
+<li><a href="#1-python-data-types">1. Python Data Types</a>
+<ul>
+<li><a href="#11-string">1.1. String</a>
+<ul>
+<li><a href="#111-string-functions">1.1.1. String Functions</a></li>
+<li><a href="#112-string-useful-constants">1.1.2. String Useful constants</a></li>
+<li><a href="#113-stripping-string">1.1.3. Stripping String</a></li>
+<li><a href="#114-reversing-string">1.1.4. Reversing String</a></li>
+<li><a href="#115-split-a-string">1.1.5. Split a String</a></li>
+<li><a href="#116-replace-all-occurrences-of-one-substring-with-another-substring">1.1.6. Replace all occurrences of one substring with another substring</a></li>
+<li><a href="#117-testing-what-a-string-is-composed-of">1.1.7. Testing what a string is composed of</a></li>
+<li><a href="#118-string-contains">1.1.8. String contains</a></li>
+<li><a href="#119-join-a-list-of-strings-into-one-string">1.1.9. Join a list of Strings into one string</a></li>
+<li><a href="#1110-counting-number-of-times-a-substring-appears-in-a-string">1.1.10. Counting number of times a substring appears in a string</a></li>
+</ul>
+</li>
+<li><a href="#12-list">1.2. List</a>
+<ul>
+<li><a href="#121-list-method">1.2.1. List Method</a></li>
+<li><a href="#122-accessing-list-values">1.2.2. Accessing List values</a></li>
+<li><a href="#123-checking-if-list-is-empty">1.2.3. Checking if list is empty</a></li>
+<li><a href="#124-iterating-over-a-list">1.2.4. Iterating over a list</a></li>
+<li><a href="#125-checking-whether-an-item-is-in-a-list">1.2.5. Checking whether an item is in a list</a></li>
+<li><a href="#126-any-and-all">1.2.6. Any and All</a></li>
+<li><a href="#127-reversing-list-elements">1.2.7. Reversing list elements</a></li>
+<li><a href="#128-concatenate-and-merge-lists">1.2.8. Concatenate and Merge lists</a></li>
+<li><a href="#129-length-of-a-list">1.2.9. Length of a list</a></li>
+<li><a href="#1210-remove-duplicate-values-in-list">1.2.10. Remove duplicate values in list</a></li>
+<li><a href="#1211-comparison-of-lists">1.2.11. Comparison of lists</a></li>
+<li><a href="#1212-accessing-values-in-nested-list">1.2.12. Accessing values in nested list</a></li>
+<li><a href="#1213-initializing-a-list-to-a-fixed-number-of-elements">1.2.13. Initializing a List to a Fixed Number of Elements</a></li>
+</ul>
+</li>
+<li><a href="#13-set">1.3. Set</a>
+<ul>
+<li><a href="#131-operations-on-sets">1.3.1. Operations on Sets</a></li>
+<li><a href="#132-unique-elements-of-a-list">1.3.2. Unique elements of a list</a></li>
+<li><a href="#133-set-of-sets">1.3.3. Set of Sets</a></li>
+<li><a href="#134-set-operations-using-methods-and-builtins">1.3.4. Set Operations using Methods and Builtins</a></li>
+</ul>
+</li>
+<li><a href="#14-dictionary">1.4. Dictionary</a>
+<ul>
+<li><a href="#141-introduction">1.4.1. Introduction</a></li>
+<li><a href="#142-creating-a-dictionary">1.4.2. Creating a dictionary</a></li>
+<li><a href="#143-avoiding-keyerror-exceptions">1.4.3. Avoiding KeyError Exceptions</a></li>
+<li><a href="#144-iterating-over-a-dictionary">1.4.4. Iterating Over a Dictionary</a></li>
+<li><a href="#145-accessing-keys-and-values">1.4.5. Accessing keys and values</a></li>
+<li><a href="#146-the-trailing-comma">1.4.6. The trailing comma</a></li>
+<li><a href="#147-the-dict-constructor">1.4.7. The dict() constructor</a></li>
+</ul>
+</li>
+<li><a href="#15-tuple">1.5. Tuple</a>
+<ul>
+<li><a href="#151-tuple">1.5.1. Tuple</a></li>
+<li><a href="#152-tuples-are-immutable">1.5.2. Tuples are immutable</a></li>
+<li><a href="#153-built-in-tuple-functions">1.5.3. Built-in Tuple Functions</a></li>
+<li><a href="#154-indexing-tuples">1.5.4. Indexing Tuples</a></li>
+<li><a href="#155-reversing-elements">1.5.5. Reversing Elements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="11-string">1.1. String</h2>
+<h3 id="111-string-functions">1.1.1. String Functions</h3>
+<p>Python's string type provides many functions</p>
+<ul>
+<li>str.upper</li>
+<li>str.lower</li>
+<li>str.capitalize</li>
+<li>str.title</li>
+<li>str.swapcase</li>
+<li>str.format</li>
+<li>f-string</li>
+</ul>
+<p><code>str.upper()</code></p>
+<p><strong>str.upper</strong> takes every character in a string and converts it to its uppercase equivalent, for example:</p>
+<pre><code class="language-python"><div><span class="hljs-string">&quot;This is a string.&quot;</span>.upper()  <span class="hljs-comment"># &quot;THIS IS A STRING.&quot;</span>
+
+str.upper(<span class="hljs-string">&quot;This is a string&quot;</span>) <span class="hljs-comment"># &quot;THIS IS A STRING&quot;</span>
+
+map(str.upper,[<span class="hljs-string">&quot;These&quot;</span>,<span class="hljs-string">&quot;are&quot;</span>,<span class="hljs-string">&quot;some&quot;</span>,<span class="hljs-string">&quot;&#x27;strings&#x27;&quot;</span>]) <span class="hljs-comment"># [&#x27;THESE&#x27;, &#x27;ARE&#x27;, &#x27;SOME&#x27;, &quot;&#x27;STRINGS&#x27;&quot;]</span>
+
+</div></code></pre>
+<p><code>str.lower()</code></p>
+<p>str.lower does the opposite; it takes every character in a string and converts it to its lowercase equivalent:</p>
+<pre><code class="language-python"><div><span class="hljs-string">&quot;This IS a string.&quot;</span>.lower() <span class="hljs-comment"># &quot;this is a string.&quot;</span>
+</div></code></pre>
+<p><code>str.capitalize()</code></p>
+<p>str.capitalize returns a capitalized version of the string, that is, it makes the first character have upper case and
+the rest lower:</p>
+<pre><code class="language-python"><div><span class="hljs-string">&quot;this Is A String.&quot;</span>.capitalize()  <span class="hljs-comment"># &quot;This is a string.&quot;</span>
+</div></code></pre>
+<p><code>str.title()</code>
+str.title returns the title cased version of the string, that is, every letter in the beginning of a word is made upper
+case and all others are made lower case:</p>
+<pre><code class="language-python"><div><span class="hljs-string">&quot;this Is a String&quot;</span>.title()  <span class="hljs-comment"># &quot;This Is A String&quot;</span>
+</div></code></pre>
+<p><code>str.swapcase()</code></p>
+<p>str.swapcase returns a new string object in which all lower case characters are swapped to upper case and all
+upper case characters to lower:</p>
+<pre><code class="language-python"><div><span class="hljs-comment">#Swaps case of each character</span>
+<span class="hljs-string">&quot;this iS A STRiNG&quot;</span>.swapcase() <span class="hljs-comment"># &quot;THIS Is a strIng&quot;</span>
+</div></code></pre>
+<p><code>str.format() and f-strings</code></p>
+<p>Given the following variables:</p>
+<pre><code class="language-python"><div>i = <span class="hljs-number">10</span>
+f = <span class="hljs-number">1.5</span>
+s = <span class="hljs-string">&quot;foo&quot;</span>
+l = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]
+d = {<span class="hljs-string">&#x27;a&#x27;</span>: <span class="hljs-number">1</span>, <span class="hljs-number">2</span>: <span class="hljs-string">&#x27;foo&#x27;</span>}
+</div></code></pre>
+<p>The following statements are all equivalent</p>
+<pre><code class="language-console"><div>&quot;10 1.5 foo [&#x27;a&#x27;, 1, 2] {&#x27;a&#x27;: 1, 2: &#x27;foo&#x27;}&quot;
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;{} {} {} {} {}&quot;</span>.format(i, f, s, l, d)</span>
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; str.format(<span class="hljs-string">&quot;{} {} {} {} {}&quot;</span>, i, f, s, l, d)</span>
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;{0} {1} {2} {3} {4}&quot;</span>.format(i, f, s, l, d)</span>
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;{0:d} {1:0.1f} {2} {3!r} {4!r}&quot;</span>.format(i, f, s, l, d)</span>
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;{i:d} {f:0.1f} {s} {l!r} {d!r}&quot;</span>.format(i=i, f=f, s=s, l=l, d=d)</span>
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; f<span class="hljs-string">&quot;{i} {f} {s} {l} {d}&quot;</span></span>
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; f<span class="hljs-string">&quot;{i:d} {f:0.1f} {s} {l!r} {d!r}&quot;</span></span>
+</div></code></pre>
+<h3 id="112-string-useful-constants">1.1.2. String Useful constants</h3>
+<ul>
+<li>string.ascii_letters</li>
+<li>string.ascii_lowercase</li>
+<li>string.ascii_uppercase</li>
+<li>string.digits</li>
+<li>string.hexdigits</li>
+<li>string.octaldigits</li>
+<li>string.punctuation</li>
+<li>string.whitespace</li>
+<li>string.printable</li>
+</ul>
+<p><code>Import the string module</code></p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; import string</span>
+</div></code></pre>
+<p><code>string.ascii_letters:</code>
+Concatenation of ascii_lowercase and ascii_uppercase:</p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; string.ascii_letters</span>
+&#x27;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&#x27;
+</div></code></pre>
+<p><code>string.ascii_lowercase:</code>
+Contains all lower case ASCII characters:</p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; string.ascii_lowercase</span>
+&#x27;abcdefghijklmnopqrstuvwxyz&#x27;
+</div></code></pre>
+<p><code>string.ascii_uppercase:</code>
+Contains all upper case ASCII characters:</p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; string.ascii_uppercase</span>
+&#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#x27;
+</div></code></pre>
+<p><code>string.digits:</code>
+Contains all decimal digit characters:</p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; string.digits</span>
+&#x27;0123456789&#x27;
+</div></code></pre>
+<p><code>string.hexdigits:</code>
+Contains all hex digit characters:</p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; string.hexdigits</span>
+&#x27;0123456789abcdefABCDEF&#x27;
+</div></code></pre>
+<p><code>string.octaldigits:</code>
+Contains all octal digit characters:</p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; string.octaldigits</span>
+&#x27;01234567&#x27;
+</div></code></pre>
+<p><code>string.punctuation:</code>
+Contains all characters which are considered punctuation in the C locale:</p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; string.punctuation</span>
+&#x27;!&quot;#$%&amp;\&#x27;()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~&#x27;
+</div></code></pre>
+<p><code>string.whitespace:</code>
+Contains all ASCII characters considered whitespace:</p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; string.whitespace</span>
+&#x27; \t\n\r\x0b\x0c&#x27;
+</div></code></pre>
+<p><code>string.printable:</code>
+Contains all characters which are considered printable; a combination of string.digits, string.ascii_letters,
+string.punctuation, and string.whitespace.</p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; string.printable</span>
+&#x27;0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!&quot;#$%&amp;\&#x27;()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~\t\n\r\x0b\x0c&#x27;
+</div></code></pre>
+<h3 id="113-stripping-string">1.1.3. Stripping String</h3>
+<p><code>str.strip()</code></p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;       a line with leading and trailing space &quot;</span>.strip()</span>
+&#x27;a line with leading and trailing space&#x27;
+</div></code></pre>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;&gt;&gt;&gt; a Python prompt&quot;</span>.strip(<span class="hljs-string">&#x27;&gt; &#x27;</span>) <span class="hljs-comment"># strips &#x27;&gt;&#x27; character and space character</span></span>
+&#x27;a Python prompt&#x27;
+</div></code></pre>
+<p><code>str.rstrip()</code></p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;       spacious string     &quot;</span>.rstrip()</span>
+&#x27;       spacious string&#x27;
+</div></code></pre>
+<p><code>str.lstrip()</code></p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;       spacious string     &quot;</span>.rstrip()</span>
+&#x27;spacious string        &#x27;
+</div></code></pre>
+<h3 id="114-reversing-string">1.1.4. Reversing String</h3>
+<p><code>reversed()</code></p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; reversed(<span class="hljs-string">&#x27;hello&#x27;</span>)</span>
+&lt;reversed object at 0x0000000000000000&gt;
+<span class="hljs-meta">
+&gt;</span><span class="bash">&gt;&gt; [char <span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> reversed(<span class="hljs-string">&#x27;hello&#x27;</span>)]</span>
+[&#x27;o&#x27;, &#x27;l&#x27;, &#x27;l&#x27;, &#x27;e&#x27;, &#x27;h&#x27;]
+</div></code></pre>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&#x27;&#x27;</span>.join(reversed(<span class="hljs-string">&#x27;hello&#x27;</span>))</span>
+&#x27;olleh&#x27;
+</div></code></pre>
+<blockquote>
+<p>While using <code>reversed()</code> might be more readable to uninitiated Python users, using extended slicing with a step of
+-1 is faster and more concise. Here , try to implement it as function:</p>
+</blockquote>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; def reversed_string(main_string):</span>
+... return main_string[::-1]
+...
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; reversed_string(<span class="hljs-string">&#x27;hello&#x27;</span>)</span>
+&#x27;olleh&#x27;
+</div></code></pre>
+<h3 id="115-split-a-string">1.1.5. Split a String</h3>
+<p><code>str.split(sep=None, maxsplit=-1)</code></p>
+<pre><code class="language-console"><div><span class="hljs-meta">#</span><span class="bash">Splitted by spaces</span>
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;This is a sentence.&quot;</span>.split()</span>
+[&#x27;This&#x27;, &#x27;is&#x27;, &#x27;a&#x27;, &#x27;sentence.&#x27;]
+<span class="hljs-meta">
+&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot; This is a sentence. &quot;</span>.split()</span>
+[&#x27;This&#x27;, &#x27;is&#x27;, &#x27;a&#x27;, &#x27;sentence.&#x27;]
+<span class="hljs-meta">
+&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;           &quot;</span>.split()</span>
+[]
+</div></code></pre>
+<pre><code class="language-console"><div><span class="hljs-meta">#</span><span class="bash">Splitted by sep</span>
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;This is a sentence.&quot;</span>.split(<span class="hljs-string">&#x27; &#x27;</span>)</span>
+[&#x27;This&#x27;, &#x27;is&#x27;, &#x27;a&#x27;, &#x27;sentence.&#x27;]
+<span class="hljs-meta">
+&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;Earth,Stars,Sun,Moon&quot;</span>.split(<span class="hljs-string">&#x27;,&#x27;</span>)</span>
+[&#x27;Earth&#x27;, &#x27;Stars&#x27;, &#x27;Sun&#x27;, &#x27;Moon&#x27;]
+<span class="hljs-meta">
+&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot; This is       a sentence. &quot;</span>.split(<span class="hljs-string">&#x27; &#x27;</span>)</span>
+[&#x27;&#x27;, &#x27;This&#x27;, &#x27;is&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;a&#x27;, &#x27;sentence.&#x27;, &#x27;&#x27;, &#x27;&#x27;]
+<span class="hljs-meta">
+&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;This is a sentence.&quot;</span>.split(<span class="hljs-string">&#x27;e&#x27;</span>)</span>
+[&#x27;This is a s&#x27;, &#x27;nt&#x27;, &#x27;nc&#x27;, &#x27;.&#x27;]
+<span class="hljs-meta">
+&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;This is a sentence.&quot;</span>.split(<span class="hljs-string">&#x27;en&#x27;</span>)</span>
+[&#x27;This is a s&#x27;, &#x27;t&#x27;, &#x27;ce.&#x27;]
+
+</div></code></pre>
+<blockquote>
+<p>The default is to split on every occurrence of the delimiter,however the maxsplit parameter limits the number of splittings that occur. The default value of -1 means no limit:</p>
+</blockquote>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;This is a sentence.&quot;</span>.split(<span class="hljs-string">&#x27;e&#x27;</span>, maxsplit=0)</span>
+[&#x27;This is a sentence.&#x27;]
+<span class="hljs-meta">
+&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;This is a sentence.&quot;</span>.split(<span class="hljs-string">&#x27;e&#x27;</span>, maxsplit=1)</span>
+[&#x27;This is a s&#x27;, &#x27;ntence.&#x27;]
+<span class="hljs-meta">
+&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;This is a sentence.&quot;</span>.split(<span class="hljs-string">&#x27;e&#x27;</span>, maxsplit=2)</span>
+[&#x27;This is a s&#x27;, &#x27;nt&#x27;, &#x27;nce.&#x27;]
+<span class="hljs-meta">
+&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;This is a sentence.&quot;</span>.split(<span class="hljs-string">&#x27;e&#x27;</span>, maxsplit=-1)</span>
+[&#x27;This is a s&#x27;, &#x27;nt&#x27;, &#x27;nc&#x27;, &#x27;.&#x27;]
+</div></code></pre>
+<h3 id="116-replace-all-occurrences-of-one-substring-with-another-substring">1.1.6. Replace all occurrences of one substring with another substring</h3>
+<p><code>str.replace(old,new[,count])</code></p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;Make sure to foo your sentence.&quot;</span>.replace(<span class="hljs-string">&#x27;foo&#x27;</span>, <span class="hljs-string">&#x27;spam&#x27;</span>)</span>
+&quot;Make sure to spam your sentence.&quot;
+<span class="hljs-meta">
+&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;It can foo multiple examples of foo if you want.&quot;</span>.replace(<span class="hljs-string">&#x27;foo&#x27;</span>, <span class="hljs-string">&#x27;spam&#x27;</span>)</span>
+&quot;It can spam multiple examples of spam if you want.&quot;
+</div></code></pre>
+<p>unless, of course, we supply a value for count. In this case count occurrences are going to get replaced:</p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;&quot;</span><span class="hljs-string">&quot;It can foo multiple examples of foo if you want, \</span></span>
+... or you can limit the foo with the third argument.&quot;&quot;&quot;.replace(&#x27;foo&#x27;, &#x27;spam&#x27;, 1)
+&#x27;It can spam multiple examples of foo if you want, or you can limit the foo with the third
+argument.&#x27;
+</div></code></pre>
+<h3 id="117-testing-what-a-string-is-composed-of">1.1.7. Testing what a string is composed of</h3>
+<ul>
+<li>string.isalpha</li>
+<li>string.isupper</li>
+<li>string.islower</li>
+<li>string.istitle</li>
+<li>string.isdecimal</li>
+<li>string.isdigit</li>
+<li>string.isnumeric</li>
+<li>string.isalnum</li>
+<li>string.isspace</li>
+</ul>
+<p><code>string.isalpha()</code></p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;Hello World&quot;</span>.isalpha() <span class="hljs-comment"># contains a space</span></span>
+False
+<span class="hljs-meta">
+&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;Hello2World&quot;</span>.isalpha() <span class="hljs-comment"># contains a number</span></span>
+False
+<span class="hljs-meta">
+&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;HelloWorld!&quot;</span>.isalpha() <span class="hljs-comment"># contains punctuation</span></span>
+False
+<span class="hljs-meta">
+&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;HelloWorld&quot;</span>.isalpha()</span>
+True
+</div></code></pre>
+<p><code>string.isupper()</code></p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;HeLLO WORLD&quot;</span>.isupper()</span>
+False
+<span class="hljs-meta">
+&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;HELLO WORLD&quot;</span>.isupper()</span>
+True
+<span class="hljs-meta">
+&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;&quot;</span>.isupper()</span>
+False
+</div></code></pre>
+<p><code>string.islower()</code></p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;Hello world&quot;</span>.islower()</span>
+False
+<span class="hljs-meta">
+&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;hello world&quot;</span>.islower()</span>
+True
+<span class="hljs-meta">
+&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;&quot;</span>.islower()</span>
+False
+</div></code></pre>
+<p><code>string.istitle()</code></p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;hello world&quot;</span>.istitle()</span>
+False
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;Hello world&quot;</span>.istitle()</span>
+False
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;Hello World&quot;</span>.istitle()</span>
+True
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;&quot;</span>.istitle()</span>
+False
+</div></code></pre>
+<p><code>string.isdecimal</code> <code>string.isdigit</code> <code>string.isnumeric</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">isdecimal</th>
+<th style="text-align:center">isdigit</th>
+<th style="text-align:center">isnumeric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">12345</td>
+<td style="text-align:center"><code>True</code></td>
+<td style="text-align:center"><code>True</code></td>
+<td style="text-align:center"><code>Tru</code>e</td>
+</tr>
+<tr>
+<td style="text-align:center">?2??5</td>
+<td style="text-align:center"><code>True</code></td>
+<td style="text-align:center"><code>True</code></td>
+<td style="text-align:center"><code>True</code></td>
+</tr>
+<tr>
+<td style="text-align:center">?²³?????</td>
+<td style="text-align:center"><code>False</code></td>
+<td style="text-align:center"><code>True</code></td>
+<td style="text-align:center"><code>True</code></td>
+</tr>
+<tr>
+<td style="text-align:center">??</td>
+<td style="text-align:center"><code>false</code></td>
+<td style="text-align:center"><code>False</code></td>
+<td style="text-align:center"><code>True</code></td>
+</tr>
+<tr>
+<td style="text-align:center">Five</td>
+<td style="text-align:center"><code>False</code></td>
+<td style="text-align:center"><code>False</code></td>
+<td style="text-align:center"><code>False</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>string.isalnum()</code></p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;Hello2World&quot;</span>.isalnum()</span>
+True
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;HelloWorld&quot;</span>.isalnum()</span>
+True
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;2016&quot;</span>.isalnum()</span>
+True
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;Hello World&quot;</span>.isalnum() <span class="hljs-comment"># contains whitespace</span></span>
+False
+</div></code></pre>
+<p><code>string.isspace()</code></p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;&quot;</span>.isspace()</span>
+False
+</div></code></pre>
+<h3 id="118-string-contains">1.1.8. String contains</h3>
+<p>To check if a string contains a given substring. Just use the <code>in</code> operator:</p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;foo&quot;</span> <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;foo.baz.bar&quot;</span></span>
+True
+</div></code></pre>
+<blockquote>
+<p>Note: testing an empty string will always result in True:</p>
+</blockquote>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;&quot;</span> <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;test&quot;</span></span>
+True
+</div></code></pre>
+<h3 id="119-join-a-list-of-strings-into-one-string">1.1.9. Join a list of Strings into one string</h3>
+<p>A string can be used as a separator to join a list of strings together into a single string using the <code>join()</code> method.</p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot; &quot;</span>.join([<span class="hljs-string">&quot;once&quot;</span>,<span class="hljs-string">&quot;upon&quot;</span>,<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-string">&quot;time&quot;</span>])</span>
+&quot;once upon a time&quot;
+<span class="hljs-meta">
+&gt;</span><span class="bash">&gt;&gt; <span class="hljs-string">&quot;---&quot;</span>.join([<span class="hljs-string">&quot;once&quot;</span>, <span class="hljs-string">&quot;upon&quot;</span>, <span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;time&quot;</span>])</span>
+&quot;once---upon---a---time&quot;
+
+</div></code></pre>
+<h3 id="1110-counting-number-of-times-a-substring-appears-in-a-string">1.1.10. Counting number of times a substring appears in a string</h3>
+<p><code>str.count()</code></p>
+<pre><code class="language-python"><div>str.count(sub[, start[, end]])
+</div></code></pre>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; s = <span class="hljs-string">&quot;She sells seashells by the seashore.&quot;</span></span>
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; s.count(<span class="hljs-string">&quot;sh&quot;</span>)</span>
+2
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; s.count(<span class="hljs-string">&quot;se&quot;</span>)</span>
+3
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; s.count(<span class="hljs-string">&quot;sea&quot;</span>)</span>
+2
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; s.count(<span class="hljs-string">&quot;seashells&quot;</span>)</span>
+1
+</div></code></pre>
+<h2 id="12-list">1.2. List</h2>
+<h3 id="121-list-method">1.2.1. List Method</h3>
+<ul>
+<li>list.append</li>
+<li>list.extend</li>
+<li>list.index</li>
+<li>list.insert</li>
+<li>list.pop</li>
+<li>list.remove</li>
+<li>list.reverse</li>
+<li>list.count</li>
+<li>list.sort</li>
+<li>list.clear</li>
+</ul>
+<p><code>list.append(value)</code> – appends a new element to the end of the list.</p>
+<pre><code class="language-python"><div>a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]
+a.append(<span class="hljs-number">6</span>) <span class="hljs-comment"># a: [1, 2, 3, 4, 5, 6]</span>
+a.append(<span class="hljs-number">7</span>) <span class="hljs-comment"># a: [1, 2, 3, 4, 5, 6, 7]</span>
+a.append(<span class="hljs-number">7</span>) <span class="hljs-comment"># a: [1, 2, 3, 4, 5, 6, 7, 7]</span>
+
+<span class="hljs-comment"># Append another list</span>
+b = [<span class="hljs-number">8</span>, <span class="hljs-number">9</span>]
+a.append(b) <span class="hljs-comment"># a: [1, 2, 3, 4, 5, 6, 7, 7, [8, 9]]</span>
+
+my_string = <span class="hljs-string">&quot;hello world&quot;</span>
+a.append(my_string) <span class="hljs-comment"># a: [1, 2, 3, 4, 5, 6, 7, 7, [8, 9], &quot;hello world&quot;]</span>
+</div></code></pre>
+<blockquote>
+<p>Note that the append() method only appends one new element to the end of the list. If you append a list to another list, the list that you append becomes a single element at the end of the first list.</p>
+</blockquote>
+<pre><code class="language-python"><div><span class="hljs-comment"># Appending a list to another list</span>
+a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">7</span>]
+b = [<span class="hljs-number">8</span>, <span class="hljs-number">9</span>]
+a.append(b) <span class="hljs-comment"># a: [1, 2, 3, 4, 5, 6, 7, 7, [8, 9]]</span>
+a[<span class="hljs-number">8</span>]  <span class="hljs-comment"># Returns: [8,9]</span>
+</div></code></pre>
+<p><code>list.extend(enumerable/iterable)</code> – extends the list by appending elements from another enumerable</p>
+<pre><code class="language-python"><div>a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">7</span>]
+b = [<span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">10</span>]
+a.extend(b) <span class="hljs-comment"># a: [1, 2, 3, 4, 5, 6, 7, 7, 8, 9, 10]</span>
+
+a.extend(range(<span class="hljs-number">3</span>))  <span class="hljs-comment"># a: [1, 2, 3, 4, 5, 6, 7, 7, 8, 9, 10, 0, 1, 2]</span>
+</div></code></pre>
+<blockquote>
+<p>Lists can also be concatenated with the + operator. Note that this does not modify any of the original lists:</p>
+</blockquote>
+<pre><code class="language-python"><div>a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>] + [<span class="hljs-number">7</span>, <span class="hljs-number">7</span>] + b
+<span class="hljs-comment"># a: [1, 2, 3, 4, 5, 6, 7, 7, 8, 9, 10]</span>
+</div></code></pre>
+<p><code>list.index(value, [startIndex])</code></p>
+<ul>
+<li>Gets the index of the first occurrence of the input value.</li>
+<li>If the input value is not in the list a ValueError exception is raised.</li>
+<li>If a second argument is provided, the search is started at that specified index.</li>
+</ul>
+<pre><code class="language-python"><div>a.index(<span class="hljs-number">7</span>)  <span class="hljs-comment"># Returns: 6</span>
+a.index(<span class="hljs-number">49</span>) <span class="hljs-comment"># ValueError, because 49 is not in a.</span>
+a.index(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>) <span class="hljs-comment"># Returns: 7</span>
+a.index(<span class="hljs-number">7</span>, <span class="hljs-number">8</span>) <span class="hljs-comment"># ValueError, because there is no 7 starting at index 8</span>
+</div></code></pre>
+<p><code>list.insert(index, value)</code> – inserts value just before the specified index.</p>
+<p>Thus after the insertion the new
+element occupies position index.</p>
+<pre><code class="language-python"><div>a.insert(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>) <span class="hljs-comment"># insert 0 at position 0</span>
+a.insert(<span class="hljs-number">2</span>, <span class="hljs-number">5</span>) <span class="hljs-comment"># insert 5 at position 2</span>
+<span class="hljs-comment"># a: [0, 1, 5, 2, 3, 4, 5, 6, 7, 7, 8, 9, 10]</span>
+</div></code></pre>
+<p><code>list.pop([index])</code> – removes and returns the item at index. With no argument it removes and returns the last
+element of the list.</p>
+<pre><code class="language-python"><div>a.pop(<span class="hljs-number">2</span>)  <span class="hljs-comment"># Returns: 5</span>
+<span class="hljs-comment"># a: [0, 1, 2, 3, 4, 5, 6, 7, 7, 8, 9, 10]</span>
+
+a.pop(<span class="hljs-number">8</span>)  <span class="hljs-comment"># Returns: 7</span>
+<span class="hljs-comment"># a: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+
+<span class="hljs-comment"># With no argument:</span>
+a.pop() <span class="hljs-comment"># Returns: 10</span>
+<span class="hljs-comment"># a: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+</div></code></pre>
+<p><code>list.remove(value)</code> – removes the first occurrence of the specified value.</p>
+<p>If the provided value cannot be found, a
+ValueError is raised.</p>
+<pre><code class="language-python"><div>a.remove(<span class="hljs-number">0</span>)
+a.remove(<span class="hljs-number">9</span>)   <span class="hljs-comment"># a: [1, 2, 3, 4, 5, 6, 7, 8]</span>
+a.remove(<span class="hljs-number">10</span>)  <span class="hljs-comment"># ValueError, because 10 is not in a</span>
+</div></code></pre>
+<p><code>list.reverse()</code> - reverses the list in-place and returns None.</p>
+<pre><code class="language-python"><div>a.reverse()
+<span class="hljs-comment"># a: [8, 7, 6, 5, 4, 3, 2, 1]</span>
+</div></code></pre>
+<p><code>list.count(value)</code> - counts the number of occurrences of some value in the list.</p>
+<pre><code class="language-python"><div>a.count(<span class="hljs-number">7</span>)
+<span class="hljs-comment"># Returns: 2</span>
+</div></code></pre>
+<p><code>list.sort</code></p>
+<pre><code class="language-python"><div>a.sort()  <span class="hljs-comment"># a = [1, 2, 3, 4, 5, 6, 7, 8]</span>
+<span class="hljs-comment"># Sorts the list in numerical order</span>
+</div></code></pre>
+<p>Lists can also be reversed when sorted using the <strong>reverse=True</strong> flag in the sort() method.</p>
+<pre><code class="language-python"><div>a.sort(reverse=<span class="hljs-literal">True</span>)
+<span class="hljs-comment"># a = [8, 7, 6, 5, 4, 3, 2, 1]</span>
+</div></code></pre>
+<p><code>list.clear()</code> – removes all items from the list</p>
+<pre><code class="language-python"><div>a.clear()
+<span class="hljs-comment"># a = []</span>
+</div></code></pre>
+<p><code>Replication</code> – multiplying an existing list by an integer will produce a larger list consisting of that many copies of the original. This can be useful for example for list initialization:</p>
+<pre><code class="language-python"><div>b = [<span class="hljs-string">&quot;blah&quot;</span>] * <span class="hljs-number">3</span>
+<span class="hljs-comment"># b = [&quot;blah&quot;, &quot;blah&quot;, &quot;blah&quot;]</span>
+
+b = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>] * <span class="hljs-number">5</span>
+<span class="hljs-comment"># [1, 3, 5, 1, 3, 5, 1, 3, 5, 1, 3, 5, 1, 3, 5]</span>
+</div></code></pre>
+<p><code>Element deletion</code> – it is possible to delete multiple elements in the list using the del keyword and slice
+notation:</p>
+<pre><code class="language-python"><div>a = list(range(<span class="hljs-number">10</span>))
+<span class="hljs-keyword">del</span> a[::<span class="hljs-number">2</span>]  <span class="hljs-comment"># a = [1, 3, 5, 7, 9]</span>
+<span class="hljs-keyword">del</span> a[<span class="hljs-number">-1</span>]   <span class="hljs-comment"># a = [1, 3, 5, 7]</span>
+<span class="hljs-keyword">del</span> a[:]    <span class="hljs-comment"># a = []</span>
+</div></code></pre>
+<h3 id="122-accessing-list-values">1.2.2. Accessing List values</h3>
+<blockquote>
+<p>Python lists are zero-indexed, and act like arrays in other languages.
+<code>Index</code></p>
+</blockquote>
+<pre><code class="language-python"><div>lst = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]
+lst[<span class="hljs-number">0</span>] <span class="hljs-comment"># 1</span>
+lst[<span class="hljs-number">1</span>] <span class="hljs-comment"># 2</span>
+
+lst[<span class="hljs-number">4</span>] <span class="hljs-comment"># IndexError: list index out of range</span>
+</div></code></pre>
+<p>Negative indices are interpreted as counting from the end of the list</p>
+<pre><code class="language-python"><div>lst[<span class="hljs-number">-1</span>] <span class="hljs-comment"># 4</span>
+lst[<span class="hljs-number">-2</span>] <span class="hljs-comment"># 3</span>
+
+lst[<span class="hljs-number">-5</span>] <span class="hljs-comment"># IndexError: list index out of range</span>
+</div></code></pre>
+<p><code>Slice notation as list[start:end:step]</code></p>
+<pre><code class="language-python"><div>lst[<span class="hljs-number">1</span>:] <span class="hljs-comment"># [2, 3, 4]</span>
+lst[:<span class="hljs-number">3</span>] <span class="hljs-comment"># [1, 2, 3]</span>
+lst[::<span class="hljs-number">2</span>] <span class="hljs-comment"># [1, 3]</span>
+lst[::<span class="hljs-number">-1</span>] <span class="hljs-comment"># [4, 3, 2, 1]</span>
+lst[<span class="hljs-number">-1</span>:<span class="hljs-number">0</span>:<span class="hljs-number">-1</span>] <span class="hljs-comment"># [4, 3, 2]</span>
+lst[<span class="hljs-number">5</span>:<span class="hljs-number">8</span>] <span class="hljs-comment"># [] since starting index is greater than length of lst, returns empty list</span>
+lst[<span class="hljs-number">1</span>:<span class="hljs-number">10</span>] <span class="hljs-comment"># [2, 3, 4] same as omitting ending index</span>
+
+<span class="hljs-comment">#reversing list</span>
+lst[::<span class="hljs-number">-1</span>] <span class="hljs-comment"># [4, 3, 2, 1]</span>
+
+lst[<span class="hljs-number">3</span>:<span class="hljs-number">1</span>:<span class="hljs-number">-1</span>] <span class="hljs-comment"># [4, 3]</span>
+</div></code></pre>
+<h3 id="123-checking-if-list-is-empty">1.2.3. Checking if list is empty</h3>
+<blockquote>
+<p>The emptiness of a list is associated to the boolean False, so you don't have to check <code>len(lst) == 0</code>, but just <code>lst</code> or <code>not lst</code></p>
+</blockquote>
+<pre><code class="language-python"><div>lst = []
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> lst:
+ print(<span class="hljs-string">&quot;list is empty&quot;</span>)
+<span class="hljs-comment"># Output: list is empty</span>
+</div></code></pre>
+<h3 id="124-iterating-over-a-list">1.2.4. Iterating over a list</h3>
+<p><code>for loop</code></p>
+<pre><code class="language-python"><div>my_list = [<span class="hljs-string">&#x27;foo&#x27;</span>, <span class="hljs-string">&#x27;bar&#x27;</span>, <span class="hljs-string">&#x27;baz&#x27;</span>]
+<span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> my_list:
+  print(item)
+
+<span class="hljs-comment"># Output: foo</span>
+<span class="hljs-comment"># Output: bar</span>
+<span class="hljs-comment"># Output: baz</span>
+</div></code></pre>
+<p>You can also get the position of each item at the same time:</p>
+<pre><code class="language-python"><div><span class="hljs-keyword">for</span> (index, item) <span class="hljs-keyword">in</span> enumerate(my_list):
+  print(<span class="hljs-string">&#x27;The item in position {} is: {}&#x27;</span>.format(index, item))
+
+<span class="hljs-comment"># Output: The item in position 0 is: foo</span>
+<span class="hljs-comment"># Output: The item in position 1 is: bar</span>
+<span class="hljs-comment"># Output: The item in position 2 is: baz</span>
+</div></code></pre>
+<p>The other way of iterating a list based on the index value:</p>
+<pre><code class="language-python"><div><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>,len(my_list)):
+  print(my_list[i])
+
+<span class="hljs-comment">#output:  foo</span>
+<span class="hljs-comment">#output:  bar</span>
+<span class="hljs-comment">#output:  baz</span>
+</div></code></pre>
+<h3 id="125-checking-whether-an-item-is-in-a-list">1.2.5. Checking whether an item is in a list</h3>
+<p><code>in</code></p>
+<pre><code class="language-python"><div>lst = [<span class="hljs-string">&#x27;test&#x27;</span>, <span class="hljs-string">&#x27;twest&#x27;</span>, <span class="hljs-string">&#x27;tweast&#x27;</span>, <span class="hljs-string">&#x27;treast&#x27;</span>]
+<span class="hljs-string">&#x27;test&#x27;</span> <span class="hljs-keyword">in</span> lst
+<span class="hljs-comment"># Out: True</span>
+
+<span class="hljs-string">&#x27;toast&#x27;</span> <span class="hljs-keyword">in</span> lst
+<span class="hljs-comment"># Out: False</span>
+
+</div></code></pre>
+<h3 id="126-any-and-all">1.2.6. Any and All</h3>
+<p><code>all()</code> - Determine if all the values in an iterable evaluate to True</p>
+<pre><code class="language-python"><div>nums = [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>]
+all(nums) <span class="hljs-comment"># False</span>
+
+chars = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>]
+all(chars)  <span class="hljs-comment"># True</span>
+</div></code></pre>
+<p><code>any()</code> - Determines if one or more values in an iterable evaluate to True</p>
+<pre><code class="language-python"><div>nums = [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>]
+any(nums) <span class="hljs-comment"># True</span>
+
+vals = [<span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>, <span class="hljs-literal">False</span>]
+any(vals) <span class="hljs-comment"># False</span>
+</div></code></pre>
+<h3 id="127-reversing-list-elements">1.2.7. Reversing list elements</h3>
+<p><code>reversed()</code></p>
+<pre><code class="language-python"><div>numbers = [<span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">6</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>]
+rev = reversed(numbers)
+<span class="hljs-comment"># rev = [9, 8, 7, 6, 5, 4, 3, 2, 1]</span>
+</div></code></pre>
+<h3 id="128-concatenate-and-merge-lists">1.2.8. Concatenate and Merge lists</h3>
+<blockquote>
+<p>merged = list1 + list2</p>
+</blockquote>
+<pre><code class="language-python"><div><span class="hljs-keyword">for</span> a, b <span class="hljs-keyword">in</span> zip(alist, blist):
+  print(a, b)
+
+<span class="hljs-comment"># Output:</span>
+<span class="hljs-comment"># a1 b1</span>
+<span class="hljs-comment"># a2 b2</span>
+<span class="hljs-comment"># a3 b3</span>
+
+</div></code></pre>
+<h3 id="129-length-of-a-list">1.2.9. Length of a list</h3>
+<p><code>len()</code> - Get the one-dimensional length of a list.</p>
+<pre><code class="language-python"><div>len([<span class="hljs-string">&#x27;one&#x27;</span>, <span class="hljs-string">&#x27;two&#x27;</span>]) <span class="hljs-comment"># returns 2</span>
+len([<span class="hljs-string">&#x27;one&#x27;</span>, [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-string">&#x27;four&#x27;</span>]) <span class="hljs-comment"># returns 3, not 4</span>
+</div></code></pre>
+<blockquote>
+<p><code>len()</code> also works on <code>strings</code>, <code>dictionaries</code>, and other data structures similar to lists</p>
+</blockquote>
+<blockquote>
+<p>Note that <code>len()</code> is a built-in function, not a method of a list object.</p>
+</blockquote>
+<blockquote>
+<p>Cost of len() is O(1),</p>
+</blockquote>
+<h3 id="1210-remove-duplicate-values-in-list">1.2.10. Remove duplicate values in list</h3>
+<p>Removing duplicate values in a list can be done by converting the list to a <code>set</code></p>
+<pre><code class="language-python"><div>names = [<span class="hljs-string">&quot;aixk&quot;</span>, <span class="hljs-string">&quot;duke&quot;</span>, <span class="hljs-string">&quot;edik&quot;</span>, <span class="hljs-string">&quot;tofp&quot;</span>, <span class="hljs-string">&quot;duke&quot;</span>]
+list(set(names))  <span class="hljs-comment"># Out: [&#x27;duke&#x27;, &#x27;tofp&#x27;, &#x27;aixk&#x27;, &#x27;edik&#x27;]</span>
+</div></code></pre>
+<h3 id="1211-comparison-of-lists">1.2.11. Comparison of lists</h3>
+<pre><code class="language-python"><div>[<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>] &lt; [<span class="hljs-number">2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>]
+<span class="hljs-comment"># True, because 1 &lt; 2</span>
+
+[<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>] &lt; [<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>]
+<span class="hljs-comment"># False, because the lists are equal</span>
+
+[<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>] &lt;= [<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>]
+<span class="hljs-comment"># True, because the lists are equal</span>
+
+[<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>] &lt; [<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">101</span>]
+<span class="hljs-comment"># True, because 100 &lt; 101</span>
+
+[<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>] &lt; [<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>]
+<span class="hljs-comment"># False, because 0 &lt; 1</span>
+</div></code></pre>
+<h3 id="1212-accessing-values-in-nested-list">1.2.12. Accessing values in nested list</h3>
+<pre><code class="language-python"><div>alist = [[[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>],[<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]], [[<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>],[<span class="hljs-number">8</span>,<span class="hljs-number">9</span>,<span class="hljs-number">10</span>], [<span class="hljs-number">12</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>]]]
+
+print(alist[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>][<span class="hljs-number">1</span>]) <span class="hljs-comment">#2</span>
+<span class="hljs-comment">#Accesses second element in the first list in the first list</span>
+
+print(alist[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>][<span class="hljs-number">2</span>]) <span class="hljs-comment">#10</span>
+<span class="hljs-comment">#Accesses the third element in the second list in the second list</span>
+</div></code></pre>
+<p><code>nested for loops</code></p>
+<pre><code class="language-python"><div>alist = [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">11</span>],[<span class="hljs-number">3</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>], [<span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">10</span>],[<span class="hljs-number">12</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>]]
+<span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> alist: <span class="hljs-comment">#One way to loop through nested lists</span>
+  <span class="hljs-keyword">for</span> col <span class="hljs-keyword">in</span> row:
+    print(col)
+
+<span class="hljs-comment">#[1, 2, 11]</span>
+<span class="hljs-comment">#[3, 4]</span>
+<span class="hljs-comment">#[5, 6, 7]</span>
+<span class="hljs-comment">#[8, 9, 10]</span>
+<span class="hljs-comment">#[12, 13, 14]</span>
+
+</div></code></pre>
+<h3 id="1213-initializing-a-list-to-a-fixed-number-of-elements">1.2.13. Initializing a List to a Fixed Number of Elements</h3>
+<pre><code class="language-python"><div>my_list = [<span class="hljs-literal">None</span>] * <span class="hljs-number">10</span>
+<span class="hljs-comment">#[None, None, None, None, None, None, None, None, None, None]</span>
+
+my_list = [<span class="hljs-string">&#x27;test&#x27;</span>] * <span class="hljs-number">10</span>
+<span class="hljs-comment">#[&#x27;test&#x27;, &#x27;test&#x27;, &#x27;test&#x27;, &#x27;test&#x27;, &#x27;test&#x27;, &#x27;test&#x27;, &#x27;test&#x27;, &#x27;test&#x27;, &#x27;test&#x27;, &#x27;test&#x27;]</span>
+</div></code></pre>
+<h2 id="13-set">1.3. Set</h2>
+<h3 id="131-operations-on-sets">1.3.1. Operations on Sets</h3>
+<p><code>with other sets</code></p>
+<pre><code class="language-python"><div><span class="hljs-comment"># Intersection</span>
+{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}.intersection({<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>}) <span class="hljs-comment"># {3, 4, 5}</span>
+{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>} &amp; {<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>} <span class="hljs-comment"># {3, 4, 5}</span>
+
+<span class="hljs-comment"># Union</span>
+{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}.union({<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>}) <span class="hljs-comment"># {1, 2, 3, 4, 5, 6}</span>
+{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>} | {<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>} <span class="hljs-comment"># {1, 2, 3, 4, 5, 6}</span>
+
+<span class="hljs-comment"># Difference</span>
+{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>}.difference({<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>}) <span class="hljs-comment"># {1, 4}</span>
+{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>} - {<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>} <span class="hljs-comment"># {1, 4}</span>
+
+<span class="hljs-comment"># Symmetric difference with</span>
+{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>}.symmetric_difference({<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>}) <span class="hljs-comment"># {1, 4, 5}</span>
+{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>} ^ {<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>} <span class="hljs-comment"># {1, 4, 5}</span>
+
+<span class="hljs-comment"># Superset check</span>
+{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}.issuperset({<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}) <span class="hljs-comment"># False</span>
+{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>} &gt;= {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>} <span class="hljs-comment"># False</span>
+
+<span class="hljs-comment"># Subset check</span>
+{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}.issubset({<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}) <span class="hljs-comment"># True</span>
+{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>} &lt;= {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>} <span class="hljs-comment"># True</span>
+
+<span class="hljs-comment"># Disjoint check</span>
+{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}.isdisjoint({<span class="hljs-number">3</span>, <span class="hljs-number">4</span>}) <span class="hljs-comment"># True</span>
+{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}.isdisjoint({<span class="hljs-number">1</span>, <span class="hljs-number">4</span>}) <span class="hljs-comment"># False</span>
+</div></code></pre>
+<p><code>with single elements</code></p>
+<pre><code class="language-python"><div><span class="hljs-comment"># Existence check</span>
+<span class="hljs-number">2</span> <span class="hljs-keyword">in</span> {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>} <span class="hljs-comment"># True</span>
+<span class="hljs-number">4</span> <span class="hljs-keyword">in</span> {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>} <span class="hljs-comment"># False</span>
+<span class="hljs-number">4</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>} <span class="hljs-comment"># True</span>
+
+<span class="hljs-comment"># Add and Remove</span>
+s = {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>}
+s.add(<span class="hljs-number">4</span>) <span class="hljs-comment"># s == {1,2,3,4}</span>
+s.discard(<span class="hljs-number">3</span>) <span class="hljs-comment"># s == {1,2,4}</span>
+s.discard(<span class="hljs-number">5</span>) <span class="hljs-comment"># s == {1,2,4}</span>
+s.remove(<span class="hljs-number">2</span>) <span class="hljs-comment"># s == {1,4}</span>
+s.remove(<span class="hljs-number">2</span>) <span class="hljs-comment"># KeyError!</span>
+</div></code></pre>
+<h3 id="132-unique-elements-of-a-list">1.3.2. Unique elements of a list</h3>
+<pre><code class="language-python"><div>restaurants = [<span class="hljs-string">&quot;McDonald&#x27;s&quot;</span>, <span class="hljs-string">&quot;Burger King&quot;</span>, <span class="hljs-string">&quot;McDonald&#x27;s&quot;</span>, <span class="hljs-string">&quot;Chicken Chicken&quot;</span>]
+unique_restaurants = set(restaurants)
+print(unique_restaurants)
+<span class="hljs-comment"># prints {&#x27;Chicken Chicken&#x27;, &quot;McDonald&#x27;s&quot;, &#x27;Burger King&#x27;}</span>
+</div></code></pre>
+<pre><code class="language-python"><div>list(unique_restaurants)
+<span class="hljs-comment"># [&#x27;Chicken Chicken&#x27;, &quot;McDonald&#x27;s&quot;, &#x27;Burger King&#x27;]</span>
+</div></code></pre>
+<pre><code class="language-python"><div><span class="hljs-comment"># Removes all duplicates and returns another list</span>
+list(set(restaurants))
+</div></code></pre>
+<h3 id="133-set-of-sets">1.3.3. Set of Sets</h3>
+<pre><code class="language-python"><div>{{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>}, {<span class="hljs-number">3</span>,<span class="hljs-number">4</span>}}
+</div></code></pre>
+<p>leads to:</p>
+<pre><code class="language-python"><div>TypeError: unhashable type: <span class="hljs-string">&#x27;set&#x27;</span>
+</div></code></pre>
+<p>Instead, use <code>frozenset</code>:</p>
+<pre><code class="language-python"><div>{frozenset({<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}), frozenset({<span class="hljs-number">3</span>, <span class="hljs-number">4</span>})}
+</div></code></pre>
+<h3 id="134-set-operations-using-methods-and-builtins">1.3.4. Set Operations using Methods and Builtins</h3>
+<p><code>sets a and set b:</code></p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; a = {1, 2, 2, 3, 4}</span>
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; b = {3, 3, 4, 4, 5}</span>
+</div></code></pre>
+<p><code>Intersection</code></p>
+<p>a.intersection(b) returns a new set with elements present in both a and b</p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; a.intersection(b)</span>
+{3, 4}
+</div></code></pre>
+<p><code>Union</code></p>
+<p>a.union(b) returns a new set with elements present in either a and b</p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; a.union(b)</span>
+{1, 2, 3, 4, 5}
+</div></code></pre>
+<p><code>Difference</code></p>
+<p>a.difference(b) returns a new set with elements present in a but not in b</p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; a.difference(b)</span>
+{1, 2}
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; b.difference(a)</span>
+{5}
+</div></code></pre>
+<p><code>Symmetric Difference</code></p>
+<p>a.symmetric_difference(b) returns a new set with elements present in either a or b but not in both</p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; a.symmetric_difference(b)</span>
+{1, 2, 5}
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; b.symmetric_difference(a)</span>
+{1, 2, 5}
+</div></code></pre>
+<blockquote>
+<p>NOTE: a.symmetric_difference(b) == b.symmetric_difference(a)</p>
+</blockquote>
+<p><code>Subset and superset</code></p>
+<ul>
+<li>c.issubset(a) tests whether each element of c is in a.</li>
+<li>a.issuperset(c) tests whether each element of c is in a.</li>
+</ul>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; c = {1, 2}</span>
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; c.issubset(a)</span>
+True
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; a.issuperset(c)</span>
+True
+</div></code></pre>
+<blockquote>
+<p>The latter operations have equivalent operators as shown below:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Method</th>
+<th style="text-align:left">Operator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">a.intersection(b)</td>
+<td style="text-align:left">a &amp; b</td>
+</tr>
+<tr>
+<td style="text-align:left">a.union(b)</td>
+<td style="text-align:left">a | b</td>
+</tr>
+<tr>
+<td style="text-align:left">a.difference(b)</td>
+<td style="text-align:left">a - b</td>
+</tr>
+<tr>
+<td style="text-align:left">a.symmetric_difference(b)</td>
+<td style="text-align:left">a ^ b</td>
+</tr>
+<tr>
+<td style="text-align:left">a.issubset(b)</td>
+<td style="text-align:left">a &lt;= b</td>
+</tr>
+<tr>
+<td style="text-align:left">a.issuperset(b)</td>
+<td style="text-align:left">a &gt;= b</td>
+</tr>
+</tbody>
+</table>
+<p><code>Disjoint sets</code> - Sets a and d are disjoint if no element in a is also in d and vice versa.</p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; d = {5, 6}</span>
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; a.isdisjoint(b) <span class="hljs-comment"># {2, 3, 4} are in both sets</span></span>
+False
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; a.isdisjoint(d)</span>
+True
+<span class="hljs-meta">#</span><span class="bash"> This is an equivalent check, but less efficient</span>
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; len(a &amp; d) == 0</span>
+True
+<span class="hljs-meta">#</span><span class="bash"> This is even less efficient</span>
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; a &amp; d == <span class="hljs-built_in">set</span>()</span>
+True
+</div></code></pre>
+<p><code>Length</code> -
+The builtin <code>len()</code> function returns the number of elements in the set</p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; len(a)</span>
+4
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; len(b)</span>
+3
+</div></code></pre>
+<h2 id="14-dictionary">1.4. Dictionary</h2>
+<h3 id="141-introduction">1.4.1. Introduction</h3>
+<ul>
+<li>A dictionary is an example of a key value store also known as Mapping in Python</li>
+<li>It allows you to store and retrieve elements by referencing a key.</li>
+<li>As dictionaries are referenced by key, they have very fast lookups.</li>
+<li>As they are primarily used for referencing items by key</li>
+<li>They are not sorted.</li>
+</ul>
+<h3 id="142-creating-a-dictionary">1.4.2. Creating a dictionary</h3>
+<p><strong>Rules for creating a dictionary:</strong></p>
+<ul>
+<li>Every key must be <strong>unique</strong> (otherwise it will be overridden)</li>
+<li>Every key must be <strong>hashable</strong> (can use the hash function to hash it; otherwise TypeError will be thrown)</li>
+<li>There is no particular order for the keys.</li>
+</ul>
+<pre><code class="language-python"><div><span class="hljs-comment"># Creating and populating it with values</span>
+stock = {<span class="hljs-string">&#x27;eggs&#x27;</span>: <span class="hljs-number">5</span>, <span class="hljs-string">&#x27;milk&#x27;</span>: <span class="hljs-number">2</span>}
+
+<span class="hljs-comment"># Or creating an empty dictionary</span>
+dictionary = {}
+
+<span class="hljs-comment"># And populating it after</span>
+dictionary[<span class="hljs-string">&#x27;eggs&#x27;</span>] = <span class="hljs-number">5</span>
+dictionary[<span class="hljs-string">&#x27;milk&#x27;</span>] = <span class="hljs-number">2</span>
+</div></code></pre>
+<pre><code class="language-python"><div><span class="hljs-comment"># Values can also be lists</span>
+mydict = {<span class="hljs-string">&#x27;a&#x27;</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-string">&#x27;b&#x27;</span>: [<span class="hljs-string">&#x27;one&#x27;</span>, <span class="hljs-string">&#x27;two&#x27;</span>, <span class="hljs-string">&#x27;three&#x27;</span>]}
+
+<span class="hljs-comment"># Use list.append() method to add new elements to the values list</span>
+mydict[<span class="hljs-string">&#x27;a&#x27;</span>].append(<span class="hljs-number">4</span>) <span class="hljs-comment"># =&gt; {&#x27;a&#x27;: [1, 2, 3, 4], &#x27;b&#x27;: [&#x27;one&#x27;, &#x27;two&#x27;, &#x27;three&#x27;]}</span>
+mydict[<span class="hljs-string">&#x27;b&#x27;</span>].append(<span class="hljs-string">&#x27;four&#x27;</span>) <span class="hljs-comment"># =&gt; {&#x27;a&#x27;: [1, 2, 3, 4], &#x27;b&#x27;: [&#x27;one&#x27;, &#x27;two&#x27;, &#x27;three&#x27;, &#x27;four&#x27;]}</span>
+</div></code></pre>
+<pre><code class="language-python"><div><span class="hljs-comment"># We can also create a dictionary using a list of two-items tuples</span>
+iterable = [(<span class="hljs-string">&#x27;eggs&#x27;</span>, <span class="hljs-number">5</span>), (<span class="hljs-string">&#x27;milk&#x27;</span>, <span class="hljs-number">2</span>)]
+dictionary = dict(iterable)
+
+<span class="hljs-comment"># Or using keyword argument:</span>
+dictionary = dict(eggs=<span class="hljs-number">5</span>, milk=<span class="hljs-number">2</span>)
+
+<span class="hljs-comment"># Another way will be to use the dict.fromkeys:</span>
+dictionary = dict.fromkeys((milk, eggs)) <span class="hljs-comment"># =&gt; {&#x27;milk&#x27;: None, &#x27;eggs&#x27;: None}</span>
+dictionary = dict.fromkeys((milk, eggs), (<span class="hljs-number">2</span>, <span class="hljs-number">5</span>)) <span class="hljs-comment"># =&gt; {&#x27;milk&#x27;: 2, &#x27;eggs&#x27;: 5}</span>
+</div></code></pre>
+<h3 id="143-avoiding-keyerror-exceptions">1.4.3. Avoiding KeyError Exceptions</h3>
+<ul>
+<li>One common pitfall when using dictionaries is to access a non-existent key.</li>
+<li>This typically results in a KeyError
+exception</li>
+</ul>
+<pre><code class="language-python"><div>mydict = {}
+mydict[<span class="hljs-string">&#x27;not there&#x27;</span>]
+
+Traceback (most recent call last):
+  File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;
+KeyError: <span class="hljs-string">&#x27;not there&#x27;</span>
+</div></code></pre>
+<p>One way to avoid <code>key errors</code> is to use the dict.get method, which allows you to specify a default value to return in
+the case of an absent key.</p>
+<pre><code class="language-python"><div>value = mydict.get(key, default_value)
+</div></code></pre>
+<ul>
+<li>Which returns <code>mydict[key]</code> if it exists, but otherwise returns default_value.</li>
+</ul>
+<blockquote>
+<p>Note that this doesn't add key to mydict.</p>
+</blockquote>
+<ul>
+<li>So if you want to retain that key value pair, you should use <code>mydict.setdefault(key, default_value)</code>, which does store the key value pair.</li>
+</ul>
+<pre><code class="language-python"><div>mydict = {}
+print(mydict)
+<span class="hljs-comment"># {}</span>
+print(mydict.get(<span class="hljs-string">&quot;foo&quot;</span>, <span class="hljs-string">&quot;bar&quot;</span>))
+<span class="hljs-comment"># bar</span>
+print(mydict)
+<span class="hljs-comment"># {}</span>
+print(mydict.setdefault(<span class="hljs-string">&quot;foo&quot;</span>, <span class="hljs-string">&quot;bar&quot;</span>))
+<span class="hljs-comment"># bar</span>
+print(mydict)
+<span class="hljs-comment"># {&#x27;foo&#x27;: &#x27;bar&#x27;}</span>
+</div></code></pre>
+<p>An alternative way to deal with the problem is catching the exception</p>
+<pre><code class="language-python"><div><span class="hljs-keyword">try</span>:
+  value = mydict[key]
+<span class="hljs-keyword">except</span> KeyError:
+  value = default_value
+</div></code></pre>
+<p>You could also check if the key is in the dictionary</p>
+<pre><code class="language-python"><div><span class="hljs-keyword">if</span> key <span class="hljs-keyword">in</span> mydict:
+  value = mydict[key]
+<span class="hljs-keyword">else</span>:
+  value = default_value
+</div></code></pre>
+<h3 id="144-iterating-over-a-dictionary">1.4.4. Iterating Over a Dictionary</h3>
+<blockquote>
+<p>The methods <code>keys()</code>, <code>values()</code> and <code>items()</code> return lists</p>
+</blockquote>
+<p><code>for loop</code></p>
+<pre><code class="language-python"><div>d = {<span class="hljs-string">&#x27;a&#x27;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;b&#x27;</span>: <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;c&#x27;</span>:<span class="hljs-number">3</span>}
+<span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> d:
+ print(key, d[key])
+<span class="hljs-comment"># c 3</span>
+<span class="hljs-comment"># b 2</span>
+<span class="hljs-comment"># a 1</span>
+</div></code></pre>
+<p>The same is true when used in a comprehension</p>
+<pre><code class="language-python"><div>print([key <span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> d])
+<span class="hljs-comment"># [&#x27;c&#x27;, &#x27;b&#x27;, &#x27;a&#x27;]</span>
+</div></code></pre>
+<p>The items() method can be used to loop over both the key and value simultaneously:</p>
+<pre><code class="language-python"><div><span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> d.items():
+  print(key, value)
+<span class="hljs-comment"># c 3</span>
+<span class="hljs-comment"># b 2</span>
+<span class="hljs-comment"># a 1</span>
+</div></code></pre>
+<p>While the values() method can be used to iterate over only the values, as would be expected:</p>
+<pre><code class="language-python"><div><span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> d.values():
+  print(key, value)
+<span class="hljs-comment"># 3</span>
+<span class="hljs-comment"># 2</span>
+<span class="hljs-comment"># 1</span>
+</div></code></pre>
+<h3 id="145-accessing-keys-and-values">1.4.5. Accessing keys and values</h3>
+<pre><code class="language-python"><div>mydict = {<span class="hljs-string">&#x27;a&#x27;</span>: <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>: <span class="hljs-string">&#x27;2&#x27;</span>}
+</div></code></pre>
+<p><code>keys()</code> - Get a list of keys:</p>
+<pre><code class="language-python"><div>print(mydict.keys())
+<span class="hljs-comment"># Python2: [&#x27;a&#x27;, &#x27;b&#x27;]</span>
+<span class="hljs-comment"># Python3: dict_keys([&#x27;b&#x27;, &#x27;a&#x27;])</span>
+</div></code></pre>
+<p><code>values()</code> - Get a list of values:</p>
+<pre><code class="language-python"><div>print(mydict.values())
+<span class="hljs-comment"># Python2: [&#x27;1&#x27;, &#x27;2&#x27;]</span>
+<span class="hljs-comment"># Python3: dict_values([&#x27;2&#x27;, &#x27;1&#x27;])</span>
+</div></code></pre>
+<p><code>items()</code> - Get a list of tuple both the key and its corresponding value:</p>
+<pre><code class="language-python"><div>print(mydict.items())
+<span class="hljs-comment"># Python2: [(&#x27;a&#x27;, &#x27;1&#x27;), (&#x27;b&#x27;, &#x27;2&#x27;)]</span>
+<span class="hljs-comment"># Python3: dict_items([(&#x27;b&#x27;, &#x27;2&#x27;), (&#x27;a&#x27;, &#x27;1&#x27;)])</span>
+</div></code></pre>
+<blockquote>
+<p>NOTE: Because a dict is unsorted, <code>keys()</code>, <code>values()</code>, and <code>items()</code> have no sort order. Use <code>sort()</code>, <code>sorted()</code>, or an <code>OrderedDict</code> if you care about the order that these methods return.</p>
+</blockquote>
+<h3 id="146-the-trailing-comma">1.4.6. The trailing comma</h3>
+<p>Like lists and tuples, you can include a trailing comma in your dictionary.</p>
+<pre><code class="language-python"><div>role = {<span class="hljs-string">&quot;By day&quot;</span>: <span class="hljs-string">&quot;A typical programmer&quot;</span>,
+        <span class="hljs-string">&quot;By night&quot;</span>: <span class="hljs-string">&quot;Still a typical programmer&quot;</span>, }
+</div></code></pre>
+<h3 id="147-the-dict-constructor">1.4.7. The dict() constructor</h3>
+<p>The <code>dict()</code> constructor can be used to create dictionaries from keyword arguments, or from a single iterable of key-value pairs, or from a single dictionary and keyword arguments.</p>
+<pre><code class="language-python"><div>dict(a=<span class="hljs-number">1</span>, b=<span class="hljs-number">2</span>, c=<span class="hljs-number">3</span>) <span class="hljs-comment"># {&#x27;a&#x27;: 1, &#x27;b&#x27;: 2, &#x27;c&#x27;: 3}</span>
+dict([(<span class="hljs-string">&#x27;d&#x27;</span>, <span class="hljs-number">4</span>), (<span class="hljs-string">&#x27;e&#x27;</span>, <span class="hljs-number">5</span>), (<span class="hljs-string">&#x27;f&#x27;</span>, <span class="hljs-number">6</span>)]) <span class="hljs-comment"># {&#x27;d&#x27;: 4, &#x27;e&#x27;: 5, &#x27;f&#x27;: 6}</span>
+dict([(<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-number">1</span>)], b=<span class="hljs-number">2</span>, c=<span class="hljs-number">3</span>) <span class="hljs-comment"># {&#x27;a&#x27;: 1, &#x27;b&#x27;: 2, &#x27;c&#x27;: 3}</span>
+dict({<span class="hljs-string">&#x27;a&#x27;</span> : <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;b&#x27;</span> : <span class="hljs-number">2</span>}, c=<span class="hljs-number">3</span>) <span class="hljs-comment"># {&#x27;a&#x27;: 1, &#x27;b&#x27;: 2, &#x27;c&#x27;: 3}</span>
+</div></code></pre>
+<h2 id="15-tuple">1.5. Tuple</h2>
+<h3 id="151-tuple">1.5.1. Tuple</h3>
+<p>Syntactically, a tuple is a comma-separated list of values:</p>
+<pre><code class="language-python"><div>t = <span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>, <span class="hljs-string">&#x27;e&#x27;</span>
+</div></code></pre>
+<p>Although not necessary, it is common to enclose tuples in parentheses:</p>
+<pre><code class="language-python"><div>t = (<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>, <span class="hljs-string">&#x27;e&#x27;</span>)
+</div></code></pre>
+<p>Create an empty tuple with parentheses:</p>
+<pre><code class="language-python"><div>t0 = ()
+type(t0) <span class="hljs-comment"># &lt;type &#x27;tuple&#x27;&gt;</span>
+</div></code></pre>
+<p>To create a tuple with a single element, you have to include a final comma:</p>
+<pre><code class="language-python"><div>t1 = <span class="hljs-string">&#x27;a&#x27;</span>,
+type(t1) <span class="hljs-comment"># &lt;type &#x27;tuple&#x27;&gt;</span>
+</div></code></pre>
+<p>Note that a single value in parentheses is not a tuple:</p>
+<pre><code class="language-python"><div>t2 = (<span class="hljs-string">&#x27;a&#x27;</span>)
+type(t2) <span class="hljs-comment"># &lt;type &#x27;str&#x27;&gt;</span>
+</div></code></pre>
+<p>To create a singleton tuple it is necessary to have a trailing comma.</p>
+<pre><code class="language-python"><div>t2 = (<span class="hljs-string">&#x27;a&#x27;</span>,)
+type(t2) <span class="hljs-comment"># &lt;type &#x27;tuple&#x27;&gt;</span>
+</div></code></pre>
+<p>Another way to create a tuple is the built-in function tuple.</p>
+<pre><code class="language-python"><div>t = tuple(<span class="hljs-string">&#x27;lupins&#x27;</span>)
+print(t) <span class="hljs-comment"># (&#x27;l&#x27;, &#x27;u&#x27;, &#x27;p&#x27;, &#x27;i&#x27;, &#x27;n&#x27;, &#x27;s&#x27;)</span>
+t = tuple(range(<span class="hljs-number">3</span>))
+print(t) <span class="hljs-comment"># (0, 1, 2)</span>
+</div></code></pre>
+<h3 id="152-tuples-are-immutable">1.5.2. Tuples are immutable</h3>
+<ul>
+<li>One of the main differences between lists and tuples in Python is that tuples are <code>immutable</code></li>
+<li>That is, one cannot add or modify items once the tuple is initialized.</li>
+</ul>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; t = (1, 4, 9)</span>
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; t[0] = 2</span>
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: &#x27;tuple&#x27; object does not support item assignment
+</div></code></pre>
+<ul>
+<li>Similarly, tuples don't have <code>.append</code> and <code>.extend </code>methods as list does. Using <code>+=</code> is possible</li>
+<li>But it changes the binding of the variable, and not the tuple itself:</li>
+</ul>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; t = (1, 2)</span>
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; q = t</span>
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; t += (3, 4)</span>
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; t</span>
+(1, 2, 3, 4)
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; q</span>
+(1, 2)
+</div></code></pre>
+<p>Be careful when placing mutable objects, such as lists, inside tuples. This may lead to very confusing outcomes when changing them.</p>
+<pre><code class="language-console"><div><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; t = (1, 2, 3, [1, 2, 3])</span>
+(1, 2, 3, [1, 2, 3])
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; t[3] += [4, 5]</span>
+</div></code></pre>
+<p>Will both raise an error and change the contents of the list within the tuple:</p>
+<pre><code class="language-console"><div>TypeError: &#x27;tuple&#x27; object does not support item assignment
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; t</span>
+(1, 2, 3, [1, 2, 3, 4, 5])
+</div></code></pre>
+<h3 id="153-built-in-tuple-functions">1.5.3. Built-in Tuple Functions</h3>
+<ul>
+<li>Comparision</li>
+<li>Tuple Length</li>
+<li>Max of a Tuple</li>
+<li>Min of a Tuple</li>
+<li>Convert a list into tuple</li>
+<li>Tuple concatenation</li>
+</ul>
+<p><code>Comparision</code></p>
+<p>If elements are of the same type, python performs the comparison and returns the result.
+If elements are different types, it checks whether they are numbers.</p>
+<ul>
+<li>If numbers, perform comparison.</li>
+<li>If either element is a number, then the other element is returned.</li>
+<li>Otherwise, types are sorted alphabetically.</li>
+</ul>
+<p>If we reached the end of one of the lists, the longer list is &quot;larger.&quot; If both list are same it returns 0.</p>
+<pre><code class="language-python"><div>tuple1 = (<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>, <span class="hljs-string">&#x27;e&#x27;</span>)
+tuple2 = (<span class="hljs-string">&#x27;1&#x27;</span>,<span class="hljs-string">&#x27;2&#x27;</span>,<span class="hljs-string">&#x27;3&#x27;</span>)
+tuple3 = (<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>, <span class="hljs-string">&#x27;e&#x27;</span>)
+
+cmp(tuple1, tuple2) <span class="hljs-comment">#Out: 1</span>
+cmp(tuple2, tuple1) <span class="hljs-comment">#Out: -1</span>
+cmp(tuple1, tuple3) <span class="hljs-comment">#Out: 0</span>
+</div></code></pre>
+<p><code>Tuple Length</code></p>
+<p>The function len returns the total length of the tuple</p>
+<pre><code class="language-python"><div>len(tuple1) <span class="hljs-comment">#Out: 5</span>
+</div></code></pre>
+<p><code>Max of a tuple</code></p>
+<p>The function max returns item from the tuple with the max value</p>
+<pre><code class="language-python"><div>max(tuple1) <span class="hljs-comment">#Out: &#x27;e&#x27;</span>
+max(tuple2) <span class="hljs-comment">#Out: &#x27;3&#x27;</span>
+</div></code></pre>
+<p><code>Min of a tuple</code></p>
+<p>The function min returns the item from the tuple with the min value</p>
+<pre><code class="language-python"><div>min(tuple1) <span class="hljs-comment">#Out: &#x27;a&#x27;</span>
+min(tuple2) <span class="hljs-comment">#Out: &#x27;1&#x27;</span>
+</div></code></pre>
+<p><code>Convert a list into tuple</code></p>
+<p>The built-in function tuple converts a list into a tuple.</p>
+<pre><code class="language-python"><div>list = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]
+tuple(list)       <span class="hljs-comment">#Out: (1, 2, 3, 4, 5)</span>
+</div></code></pre>
+<p><code>Tuple concatenation</code></p>
+<p>Use + to concatenate two tuples</p>
+<pre><code class="language-python"><div>tuple1 + tuple2     <span class="hljs-comment">#Out: (&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;, &#x27;d&#x27;, &#x27;e&#x27;, &#x27;1&#x27;, &#x27;2&#x27;, &#x27;3&#x27;)</span>
+</div></code></pre>
+<h3 id="154-indexing-tuples">1.5.4. Indexing Tuples</h3>
+<pre><code class="language-python"><div>x = (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
+x[<span class="hljs-number">0</span>] <span class="hljs-comment"># 1</span>
+x[<span class="hljs-number">1</span>] <span class="hljs-comment"># 2</span>
+x[<span class="hljs-number">2</span>] <span class="hljs-comment"># 3</span>
+x[<span class="hljs-number">3</span>] <span class="hljs-comment"># IndexError: tuple index out of range</span>
+</div></code></pre>
+<p>Indexing with negative numbers will start from the last element as -1:</p>
+<pre><code class="language-python"><div>x[<span class="hljs-number">-1</span>] <span class="hljs-comment"># 3</span>
+x[<span class="hljs-number">-2</span>] <span class="hljs-comment"># 2</span>
+x[<span class="hljs-number">-3</span>] <span class="hljs-comment"># 1</span>
+x[<span class="hljs-number">-4</span>] <span class="hljs-comment"># IndexError: tuple index out of range</span>
+</div></code></pre>
+<p>Indexing a range of elements</p>
+<pre><code class="language-python"><div>print(x[:<span class="hljs-number">-1</span>]) <span class="hljs-comment"># (1, 2)</span>
+print(x[<span class="hljs-number">-1</span>:]) <span class="hljs-comment"># (3,)</span>
+print(x[<span class="hljs-number">1</span>:<span class="hljs-number">3</span>]) <span class="hljs-comment"># (2, 3)</span>
+</div></code></pre>
+<h3 id="155-reversing-elements">1.5.5. Reversing Elements</h3>
+<pre><code class="language-python"><div>Reverse elements within a tuple
+colors = <span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;green&quot;</span>, <span class="hljs-string">&quot;blue&quot;</span>
+rev = colors[::<span class="hljs-number">-1</span>]
+<span class="hljs-comment"># rev: (&quot;blue&quot;, &quot;green&quot;, &quot;red&quot;)</span>
+colors = rev
+<span class="hljs-comment"># colors: (&quot;blue&quot;, &quot;green&quot;, &quot;red&quot;)</span>
+</div></code></pre>
+<p>Or using reversed (reversed gives an iterable which is converted to a tuple):</p>
+<pre><code class="language-python"><div>rev = tuple(reversed(colors))
+<span class="hljs-comment"># rev: (&quot;blue&quot;, &quot;green&quot;, &quot;red&quot;)</span>
+colors = rev
+<span class="hljs-comment"># colors: (&quot;blue&quot;, &quot;green&quot;, &quot;red&quot;)</span>
+</div></code></pre>
+
+    </body>
+    </html>
